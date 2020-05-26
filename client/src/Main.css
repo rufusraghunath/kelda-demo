@@ -1,3 +1,7 @@
 .main {
   padding: 15px;
 }
+
+.table-container {
+  height: 600px;
+}

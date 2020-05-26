@@ -10,6 +10,10 @@ app.use((ctx) => {
   const response = generateResponse(name, n);
 
   ctx.response.body = JSON.stringify(response);
+  ctx.response.headers.set(
+    'Access-Control-Allow-Origin',
+    'http://localhost:3000'
+  );
 });
 
 await app.listen({ port: 8080 });

@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  text-align: left;
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+.header {
+  /* background-color: #dedede;
+  padding: 0px; */
+}
+
+.body {
+}
+
+.row {
+  border: 1px solid black;
+}
+
+.selected {
+  background-color: aquamarine;
+}
+
+.cell {
+  /* border: 1px solid black; */
+}
