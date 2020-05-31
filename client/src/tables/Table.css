@@ -1,5 +1,5 @@
 .table {
-  width: 100%;
+  width: 500px;
   text-align: left;
   border: 2px solid black;
   border-collapse: collapse;
@@ -8,6 +8,14 @@
 .header {
   /* background-color: #dedede;
   padding: 0px; */
+}
+
+th {
+  width: 100px;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .body {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import HTMLTable from './tables/HTMLTable';
 import FetchUsers from './FetchUsers';
+import buildRows from './tables/buildRows';
 import './Main.css';
 
 function Main() {
@@ -20,7 +21,7 @@ function Main() {
       <h2>Users</h2>
       <div className="table-container">
         <HTMLTable
-          users={users}
+          rows={buildRows(users)}
           selected={selected}
           checked={checked}
           select={select}
