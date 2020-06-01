@@ -1,13 +1,8 @@
 .table {
-  width: 500px;
+  width: 400px;
   text-align: left;
   border: 2px solid black;
   border-collapse: collapse;
-}
-
-.header {
-  /* background-color: #dedede;
-  padding: 0px; */
 }
 
 th {
@@ -18,17 +13,10 @@ th {
   visibility: hidden;
 }
 
-.body {
-}
-
 .row {
   border: 1px solid black;
 }
 
 .selected {
   background-color: aquamarine;
-}
-
-.cell {
-  /* border: 1px solid black; */
 }

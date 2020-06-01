@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HTMLTable from './tables/HTMLTable';
 import FetchUsers from './FetchUsers';
 import buildRows from './tables/buildRows';
+import VirtualizedTable from './tables/VirtualizedTable';
 import './Main.css';
 
 function Main() {
@@ -21,6 +22,13 @@ function Main() {
       <h2>Users</h2>
       <div className="table-container">
         <HTMLTable
+          rows={buildRows(users)}
+          selected={selected}
+          checked={checked}
+          select={select}
+          check={check}
+        />
+        <VirtualizedTable
           rows={buildRows(users)}
           selected={selected}
           checked={checked}
