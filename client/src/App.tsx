@@ -1,4 +1,6 @@
 import React from 'react';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import Sidebar from './Sidebar';
 import Main from './Main';
 import './App.css';
@@ -6,8 +8,10 @@ import './App.css';
 function App() {
   return (
     <div className="app">
-      <Sidebar />
-      <Main />
+      <Router history={createBrowserHistory()}>
+        <Sidebar />
+        <Main />
+      </Router>
     </div>
   );
 }

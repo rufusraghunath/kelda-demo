@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import HTMLTable from './tables/HTMLTable';
 import FetchUsers from './FetchUsers';
 import buildRows from './tables/buildRows';
@@ -21,20 +22,35 @@ function Main() {
       <FetchUsers setUsers={setUsers} />
       <h2>Users</h2>
       <div className="table-container">
-        <HTMLTable
-          rows={buildRows(users)}
-          selected={selected}
-          checked={checked}
-          select={select}
-          check={check}
-        />
-        <VirtualizedTable
-          rows={buildRows(users)}
-          selected={selected}
-          checked={checked}
-          select={select}
-          check={check}
-        />
+        <Switch>
+          <Route
+            path="/html"
+            render={() => (
+              <HTMLTable
+                rows={buildRows(users)}
+                selected={selected}
+                checked={checked}
+                select={select}
+                check={check}
+              />
+            )}
+          ></Route>
+          <Route
+            path="/virtualized"
+            render={() => (
+              <VirtualizedTable
+                rows={buildRows(users)}
+                selected={selected}
+                checked={checked}
+                select={select}
+                check={check}
+              />
+            )}
+          ></Route>
+          <Route path="/">
+            <Redirect to="/html" />
+          </Route>
+        </Switch>
       </div>
     </div>
   );

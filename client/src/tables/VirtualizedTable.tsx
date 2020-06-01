@@ -5,10 +5,6 @@ import './Table.css';
 
 // https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation
 
-function cellRenderer() {
-  //
-}
-
 function VirtualizedTable({ rows }: TableProps) {
   return (
     <Table

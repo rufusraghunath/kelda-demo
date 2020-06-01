@@ -1,24 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 const TABLES = [
   {
-    name: '',
-    component: null,
+    name: 'HTML Table',
+    link: '/html',
+  },
+  {
+    name: 'Virtualized Table',
+    link: '/virtualized',
   },
 ];
-
-// TODO: add react-router here
 
 function Sidebar() {
   return (
     <div className="sidebar">
       <h1>JS Perf</h1>
-      <>
-        {TABLES.map((table, i) => (
-          <div key={i}>Table</div>
+      <ul>
+        {TABLES.map(({ name, link }, i) => (
+          <li key={i}>
+            <Link to={link}>{name}</Link>
+          </li>
         ))}
-      </>
+      </ul>
     </div>
   );
 }
