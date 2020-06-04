@@ -1,7 +1,6 @@
 .table {
   width: 400px;
   text-align: left;
-  border: 2px solid black;
   border-collapse: collapse;
 }
 
@@ -9,8 +8,8 @@ th {
   width: 100px;
 }
 
-.hidden {
-  visibility: hidden;
+.header span {
+  vertical-align: middle;
 }
 
 .row {
@@ -19,4 +18,8 @@ th {
 
 .selected {
   background-color: aquamarine;
+}
+
+.hidden {
+  visibility: hidden;
 }

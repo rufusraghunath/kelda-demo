@@ -1,7 +1,10 @@
 .main {
-  padding: 15px;
+  padding: 25px 40px;
 }
 
 .table-container {
   height: 600px;
+  width: 400px;
+  border: 2px solid black;
+  overflow: scroll;
 }
