@@ -4,10 +4,17 @@ interface User {
   name: string;
 }
 
+interface ColumnDefinition {
+  label: string;
+  dataKey: string;
+  width: number;
+}
+
 interface Row {
   [key: string]: number | string;
   id: number;
   age: number;
+  birthYear: number;
   name: string;
 }
 

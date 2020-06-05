@@ -6,12 +6,14 @@ function HTMLTable({ rows, selected, checked, select, check }: TableProps) {
   return (
     <table className="table">
       <thead className="row header">
-        <tr>
+        <tr className="header">
           <th>
             <input type="checkbox" readOnly className="hidden" />
           </th>
-          {COLUMNS.map((column) => (
-            <th key={column}>{column.toUpperCase()}</th>
+          {COLUMNS.map(({ label, width }) => (
+            <th key={label} style={{ width }}>
+              {label}
+            </th>
           ))}
         </tr>
       </thead>
@@ -32,9 +34,9 @@ function HTMLTable({ rows, selected, checked, select, check }: TableProps) {
                 onClick={(e) => e.stopPropagation()}
               />
             </td>
-            {COLUMNS.map((column) => (
-              <td className="cell" key={column}>
-                {row[column]}
+            {COLUMNS.map(({ dataKey }) => (
+              <td className="cell" key={dataKey}>
+                {row[dataKey]}
               </td>
             ))}
           </tr>

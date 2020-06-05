@@ -1,19 +1,29 @@
 .table {
-  width: 400px;
+  width: 550px;
   text-align: left;
   border-collapse: collapse;
 }
 
-th {
-  width: 100px;
+.header,
+.table > .virtualized-row:first-of-type {
+  background-color: #dedede;
 }
 
 .header span {
   vertical-align: middle;
 }
 
+table,
 .row {
   border: 1px solid black;
+}
+
+.virtualized-row {
+  border-bottom: 1px solid black;
+}
+
+.row .cell:first-of-type {
+  padding-left: 10px;
 }
 
 .selected {
