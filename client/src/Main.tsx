@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HTMLTable from './tables/HTMLTable';
-import FetchUsers from './FetchUsers';
-import buildRows from './tables/buildRows';
 import VirtualizedTable from './tables/VirtualizedTable';
+import buildRows from './tables/buildRows';
+import FetchUsers from './FetchUsers';
+import ComplexitySwitch, { Complexity } from './ComplexitySwitch';
 import './Main.css';
 
 function Main() {
   const [users, setUsers] = useState<User[]>([]);
+  const [complexity, setComplexity] = useState<Complexity>('n');
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState<number | null>(null);
   const select = (id: number) => {
@@ -20,6 +22,7 @@ function Main() {
   return (
     <div className="main">
       <FetchUsers setUsers={setUsers} />
+      <ComplexitySwitch complexity={complexity} setComplexity={setComplexity} />
       <h2>Users</h2>
       <div className="table-container">
         <Switch>
@@ -27,7 +30,7 @@ function Main() {
             path="/html"
             render={() => (
               <HTMLTable
-                rows={buildRows(users)}
+                rows={buildRows(complexity, users)}
                 selected={selected}
                 checked={checked}
                 select={select}
@@ -39,7 +42,7 @@ function Main() {
             path="/virtualized"
             render={() => (
               <VirtualizedTable
-                rows={buildRows(users)}
+                rows={buildRows(complexity, users)}
                 selected={selected}
                 checked={checked}
                 select={select}

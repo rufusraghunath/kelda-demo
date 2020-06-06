@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './FetchUsers.css';
 
 interface FetchUsersProps {
   setUsers: (users: User[]) => void;

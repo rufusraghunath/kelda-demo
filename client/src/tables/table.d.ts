@@ -16,6 +16,7 @@ interface Row {
   age: number;
   birthYear: number;
   name: string;
+  bestFriend: string;
 }
 
 interface TableProps {
