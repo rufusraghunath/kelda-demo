@@ -1,5 +1,5 @@
 import React from 'react';
-import './Complexity.css';
+import './ComplexitySwitch.css';
 
 export type Complexity = 'n' | 'n^2';
 
@@ -11,8 +11,11 @@ interface Props {
 function ComplexitySwitch({ complexity, setComplexity }: Props) {
   return (
     <div className="complexity-switch">
-      <span className="complexity-label">Row builder complexity:</span>
+      <label htmlFor="complexity-switch" className="complexity-label">
+        Row builder complexity:
+      </label>
       <select
+        id="complexity-switch"
         value={complexity}
         onChange={(e) => setComplexity(e.target.value as Complexity)}
       >

@@ -15,7 +15,7 @@ export const COLUMNS: ColumnDefinition[] = [
     width: 100,
   },
   {
-    label: 'BEST FRIEND ID',
+    label: 'BEST FRIEND',
     dataKey: 'bestFriend',
     width: 150,
   },
