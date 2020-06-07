@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FetchUsers from './FetchUsers';
 import SelectNumberOfTables, { TableNumber } from './SelectNumberOfTables';
-import ComplexitySwitch, { Complexity } from './ComplexitySwitch';
+import ComplexitySwitch, { Complexity } from './SelectComplexity';
 import TableSwitch from './tables/TableSwitch';
 import './Main.css';
 

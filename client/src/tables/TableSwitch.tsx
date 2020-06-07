@@ -5,7 +5,7 @@ import VirtualizedTable from './VirtualizedTable';
 import LazyVirtualizedTable from './LazyVirtualizedTable';
 import KeldaTable from './KeldaTable';
 import buildRows, { buildRow } from './buildRows';
-import { Complexity } from '../ComplexitySwitch';
+import { Complexity } from '../SelectComplexity';
 import './TableSwitch.css';
 
 interface Props {

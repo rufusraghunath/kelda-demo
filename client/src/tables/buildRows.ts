@@ -1,4 +1,4 @@
-import { Complexity } from '../ComplexitySwitch';
+import { Complexity } from '../SelectComplexity';
 
 export default function buildRows(
   complexity: Complexity,

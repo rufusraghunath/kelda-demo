@@ -1,5 +1,5 @@
 import React from 'react';
-import './ComplexitySwitch.css';
+import './SelectComplexity.css';
 
 export type Complexity = 'n' | 'n^2';
 

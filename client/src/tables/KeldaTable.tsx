@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import VirtualizedTable from './VirtualizedTable';
-import { Complexity } from '../ComplexitySwitch';
+import { Complexity } from '../SelectComplexity';
 import { kelda, options } from '../kelda';
 
 interface KeldaTableProps extends BaseTableProps {
