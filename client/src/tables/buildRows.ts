@@ -1,14 +1,26 @@
 import moment from 'moment';
 import { Complexity } from '../ComplexitySwitch';
 
-function buildRows(complexity: Complexity, users: User[]): Row[] {
-  return users.map(({ id, name, age }) => ({
+export default function buildRows(
+  complexity: Complexity,
+  users: User[]
+): Row[] {
+  return users.map((_, i) => buildRow(complexity, users, i));
+}
+
+export function buildRow(
+  complexity: Complexity,
+  users: User[],
+  userIndex: number
+) {
+  const { id, age, name } = users[userIndex];
+  return {
     id,
     age,
     birthYear: moment().subtract(age, 'years').year(),
     name: name[0].toUpperCase() + name.slice(1, name.length),
     bestFriend: complexity === 'n^2' ? getBestFriend(id, users) : 'No one :(',
-  }));
+  };
 }
 
 function getBestFriend(userId: number, users: User[]): string {
@@ -26,5 +38,3 @@ function getBestFriend(userId: number, users: User[]): string {
 
   return friends[0].name;
 }
-
-export default buildRows;

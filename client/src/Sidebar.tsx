@@ -11,6 +11,10 @@ const TABLES = [
     name: 'Virtualized Table',
     link: '/virtualized',
   },
+  {
+    name: 'Lazy Virtualized Table',
+    link: '/lazy-virtualized',
+  },
 ];
 
 function Sidebar() {

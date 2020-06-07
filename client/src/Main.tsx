@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import HTMLTable from './tables/HTMLTable';
 import VirtualizedTable from './tables/VirtualizedTable';
-import buildRows from './tables/buildRows';
+import LazyVirtualizedTable from './tables/LazyVirtualizedTable';
+import buildRows, { buildRow } from './tables/buildRows';
 import FetchUsers from './FetchUsers';
 import ComplexitySwitch, { Complexity } from './ComplexitySwitch';
 import './Main.css';
@@ -37,7 +38,7 @@ function Main() {
                 check={check}
               />
             )}
-          ></Route>
+          />
           <Route
             path="/virtualized"
             render={() => (
@@ -49,7 +50,20 @@ function Main() {
                 check={check}
               />
             )}
-          ></Route>
+          />
+          <Route
+            path="/lazy-virtualized"
+            render={() => (
+              <LazyVirtualizedTable
+                users={users}
+                buildRow={buildRow.bind(null, complexity)}
+                selected={selected}
+                checked={checked}
+                select={select}
+                check={check}
+              />
+            )}
+          />
           <Route path="/">
             <Redirect to="/html" />
           </Route>

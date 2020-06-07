@@ -6,26 +6,27 @@ import './Table.css';
 
 // https://github.com/bvaughn/react-virtualized/tree/master/docs#documentation
 
-function VirtualizedTable({
-  rows,
+function LazyVirtualizedTable({
+  users,
+  buildRow,
   checked,
   selected,
   check,
   select,
-}: TableProps) {
+}: LazyTableProps) {
   return (
     <Table
       height={600}
       width={550}
       headerHeight={25}
       rowHeight={25}
-      rowCount={rows.length}
-      rowGetter={({ index }) => rows[index]}
+      rowCount={users.length}
+      rowGetter={({ index }) => buildRow(users, index)}
       onRowClick={({ rowData }) => select(rowData.id)}
       className="table"
       headerClassName="header"
       rowClassName={({ index }) =>
-        selected === rows[index]?.id
+        selected === users[index]?.id
           ? 'virtualized-row selected'
           : 'virtualized-row'
       }
@@ -69,4 +70,4 @@ function checkboxRenderer(
   );
 }
 
-export default VirtualizedTable;
+export default LazyVirtualizedTable;

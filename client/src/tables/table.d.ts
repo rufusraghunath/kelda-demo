@@ -19,10 +19,18 @@ interface Row {
   bestFriend: string;
 }
 
-interface TableProps {
-  rows: Row[];
+interface BaseTableProps {
   selected: number | null;
   checked: number | null;
   select: (id: number) => void;
   check: (id: number) => void;
+}
+
+interface TableProps extends BaseTableProps {
+  rows: Row[];
+}
+
+interface LazyTableProps extends BaseTableProps {
+  users: User[];
+  buildRow: (users: User[], index: number) => Row;
 }
