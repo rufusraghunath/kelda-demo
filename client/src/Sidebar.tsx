@@ -13,7 +13,11 @@ const TABLES = [
   },
   {
     name: 'Lazy Virtualized Table',
-    link: '/lazy-virtualized',
+    link: '/lazy',
+  },
+  {
+    name: 'Kelda Virtualized Table',
+    link: '/kelda',
   },
 ];
 

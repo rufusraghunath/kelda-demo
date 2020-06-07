@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import HTMLTable from './tables/HTMLTable';
 import VirtualizedTable from './tables/VirtualizedTable';
 import LazyVirtualizedTable from './tables/LazyVirtualizedTable';
+import KeldaTable from './tables/KeldaTable';
 import buildRows, { buildRow } from './tables/buildRows';
 import FetchUsers from './FetchUsers';
 import ComplexitySwitch, { Complexity } from './ComplexitySwitch';
@@ -19,6 +20,12 @@ function Main() {
   const check = (id: number) => {
     id === checked ? setChecked(null) : setChecked(id);
   };
+  const commonProps = {
+    selected,
+    checked,
+    select,
+    check,
+  };
 
   return (
     <div className="main">
@@ -30,13 +37,7 @@ function Main() {
           <Route
             path="/html"
             render={() => (
-              <HTMLTable
-                rows={buildRows(complexity, users)}
-                selected={selected}
-                checked={checked}
-                select={select}
-                check={check}
-              />
+              <HTMLTable rows={buildRows(complexity, users)} {...commonProps} />
             )}
           />
           <Route
@@ -44,23 +45,27 @@ function Main() {
             render={() => (
               <VirtualizedTable
                 rows={buildRows(complexity, users)}
-                selected={selected}
-                checked={checked}
-                select={select}
-                check={check}
+                {...commonProps}
               />
             )}
           />
           <Route
-            path="/lazy-virtualized"
+            path="/lazy"
             render={() => (
               <LazyVirtualizedTable
                 users={users}
                 buildRow={buildRow.bind(null, complexity)}
-                selected={selected}
-                checked={checked}
-                select={select}
-                check={check}
+                {...commonProps}
+              />
+            )}
+          />
+          <Route
+            path="/kelda"
+            render={() => (
+              <KeldaTable
+                complexity={complexity}
+                users={users}
+                {...commonProps}
               />
             )}
           />

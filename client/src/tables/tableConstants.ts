@@ -10,13 +10,13 @@ export const COLUMNS: ColumnDefinition[] = [
     width: 100,
   },
   {
-    label: 'BIRTH YEAR',
-    dataKey: 'birthYear',
-    width: 150,
-  },
-  {
     label: 'AGE',
     dataKey: 'age',
     width: 100,
+  },
+  {
+    label: 'BEST FRIEND ID',
+    dataKey: 'bestFriend',
+    width: 150,
   },
 ];

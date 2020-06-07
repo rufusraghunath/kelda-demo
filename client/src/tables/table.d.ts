@@ -14,9 +14,8 @@ interface Row {
   [key: string]: number | string;
   id: number;
   age: number;
-  birthYear: number;
   name: string;
-  bestFriend: string;
+  bestFriend: id;
 }
 
 interface BaseTableProps {
