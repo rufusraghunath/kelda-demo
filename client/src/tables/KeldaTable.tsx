@@ -19,7 +19,12 @@ export default function KeldaTable({
   const [rows, setRows] = useState<Row[]>([]);
 
   useEffect(() => {
-    kelda.orderWork<Row[]>(options, complexity, users).then(setRows);
+    kelda
+      .orderWork<Row[]>(options, complexity, users)
+      .then(setRows)
+      .then(() => {
+        console.log('FINISHED BUILDING ROWS IN KELDA');
+      });
   }, [complexity, users]);
 
   return (
