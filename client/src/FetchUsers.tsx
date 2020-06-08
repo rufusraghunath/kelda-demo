@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
+import './FetchUsers.css';
 
 interface FetchUsersProps {
   setUsers: (users: User[]) => void;
 }
 
-async function fetchUsers(
-  name: string,
-  n: string,
-  cb: (users: User[]) => void
-) {
+async function fetchUsers(n: string, cb: (users: User[]) => void) {
   try {
-    const res = await fetch(`http://localhost:8080?name=${name}&n=${n}`);
+    const res = await fetch(`http://localhost:8080?n=${n}`);
     const users: User[] = await res.json();
 
     cb(users);
@@ -20,23 +17,27 @@ async function fetchUsers(
 }
 
 function FetchUsers({ setUsers }: FetchUsersProps) {
-  const [name, setName] = useState('');
   const [n, setN] = useState('0');
+  const [isFetching, setIsFetching] = useState(false);
+  const onClick = async () => {
+    setIsFetching(true);
+
+    await fetchUsers(n, setUsers);
+
+    setIsFetching(false);
+  };
 
   return (
     <div className="fetch-users">
       <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
+        className="num-users"
         type="number"
         min="0"
         value={n}
         onChange={(e) => setN(e.target.value)}
       />
-      <button onClick={() => fetchUsers(name, n, setUsers)}>Fetch users</button>
+      <button onClick={onClick}>Fetch users</button>
+      {isFetching && <span className="fetching">Fetching...</span>}
     </div>
   );
 }

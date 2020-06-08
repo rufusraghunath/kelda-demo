@@ -16,17 +16,17 @@ export function buildRow(
   return {
     id,
     age,
-    name: name[0].toUpperCase() + name.slice(1, name.length),
+    name,
     bestFriend:
       complexity === 'n^2' ? getBestFriend(id, age, users) : 'No one :(',
   };
 }
 
-function getBestFriend(userId: number, userAge: number, users: User[]): number {
+function getBestFriend(userId: number, userAge: number, users: User[]): string {
   const friends = users
     .filter(({ id }) => id !== userId)
-    .map(({ id, age }) => ({
-      id,
+    .map(({ name, age }) => ({
+      name,
       closeness: Math.abs(userAge - age),
     }))
     .sort((a, b) => {
@@ -35,5 +35,5 @@ function getBestFriend(userId: number, userAge: number, users: User[]): number {
       return 0;
     });
 
-  return friends[0].id;
+  return friends[0].name;
 }

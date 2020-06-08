@@ -5,9 +5,8 @@ const app = new Application();
 
 app.use((ctx) => {
   const params = ctx.request.url.searchParams;
-  const name = params.get('name');
   const n = params.get('n');
-  const response = generateResponse(name, n);
+  const response = generateResponse(n);
 
   ctx.response.body = JSON.stringify(response);
   ctx.response.headers.set(
